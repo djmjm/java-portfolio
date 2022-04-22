@@ -74,42 +74,40 @@ class Calculadora{
 			
 			if(!this.checarNumero(token)){
 				try {
-					if(true) {
-						if(
-							checarPrecedencia(pilha.peek())
-							== MENOR_PRECEDENCIA	
-						) {
-							if(checarSoma(token)) {
-								fila.offer(
-										pilha.pop()
-										);
-								pilha.push(token);
-							}else {
-							fila.offer(
-									token
-									);
-							}
-						}else { 
-							do {
-							fila.offer(
-									pilha.pop()
-									);
-							}while(checarPrecedencia(pilha.peek())
-									== MENOR_PRECEDENCIA
-									);
-							pilha.push(token);
+					boolean precedencia_topo_pilha = checarPrecedencia(pilha.peek());
+					boolean precedencia_operacao_lida = checarPrecedencia(token);
 							
-						}
-					}else {
+					if(pilha.isEmpty()) {
 						pilha.push(token);
+					}else {
+						if(precedencia_operacao_lida == MAIOR_PRECEDENCIA
+							&&
+							precedencia_topo_pilha == MENOR_PRECEDENCIA
+								) {
+							pilha.push(token);
+						}else if(precedencia_operacao_lida == MENOR_PRECEDENCIA
+								&&
+								precedencia_topo_pilha == MAIOR_PRECEDENCIA
+									) {
+							do {
+								fila.offer(pilha.pop());
+								precedencia_topo_pilha = checarPrecedencia(pilha.peek());
+							}while(precedencia_operacao_lida == MENOR_PRECEDENCIA
+								&&
+								precedencia_topo_pilha == MAIOR_PRECEDENCIA);
+							//pilha.push(token);
+							fila.offer(pilha.pop());
+							pilha.push(token);
+						}else {
+							fila.offer(pilha.pop());
+							pilha.push(token);
+						}
 					}
 				}catch(EmptyStackException e) {
 					pilha.push(token);
 				}
-			}
-			else {
-				fila.offer(token);
-			}
+				
+			}else { fila.offer(token);  }	
 					
 			lista_infix.remove(0);
 		}
@@ -157,7 +155,7 @@ class Calculadora{
 		Stack<Double> pilha = new Stack<Double>();
 		
 		while(!fila_final.isEmpty()) {
-			String token = fila_final.pop();
+			String token = fila_final.poll();
 			
 			if(
 				this.checarNumero(token)
@@ -171,9 +169,13 @@ class Calculadora{
 							.getResultado()
 						);
 			}
+			
+			System.out.println("PILHA:");
+			System.out.println(pilha);
 		}
 		
 		return pilha.pop();
+		
 	}
 
 	private class Operacao{
