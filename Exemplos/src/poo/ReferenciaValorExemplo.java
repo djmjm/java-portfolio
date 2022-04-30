@@ -51,6 +51,12 @@ public class ReferenciaValorExemplo {
 		System.out.println(pessoa2.getNome());
 		System.out.println();
 		
+		pessoa2 = new Pessoa();
+		System.out.println(pessoa1.getNome());
+		System.out.println(pessoa2.getNome());
+		System.out.println();
+		
+		
 		
 	}
 }
