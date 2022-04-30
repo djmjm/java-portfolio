@@ -7,6 +7,10 @@ public class Pessoa {
 		nome = "Anônimo";
 	}
 	
+	Pessoa(String nome){
+		this.nome = nome;
+	}
+	
 	public void mudarNome(String nome) {
 		this.nome = nome;
 	}
