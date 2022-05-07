@@ -2,39 +2,64 @@ package poopatterns.heranca;
 
 public class Jogador {
 	
-	private Posicao posicao = new Posicao();;
+	private Posicao posicao = new Posicao();
+	private int vida = 100;
+	
+	public Jogador() {}
+	public Jogador(int x, int y) {
+		posicao.x = x;
+		posicao.y = y;
+	}
+	
+	public void atacar(Jogador inimigo) {
+		int distanciaX = Math.abs( inimigo.posicao.x - posicao.x );
+		int distanciaY = Math.abs( inimigo.posicao.y - posicao.y );
+		
+		boolean questao1 = distanciaX == 1;
+		boolean questao2 = distanciaY == 1;
+		boolean resposta = questao1 || questao2;
+		
+		if(resposta) {
+			inimigo.vida -= 10;
+			inimigo.vida = Math.max(inimigo.vida, 0);
+		}
+		
+	}
 	
 	public void andar(Direcao direcao) {
-		var posicaoAtual = posicao.getPosicao();
-		
 		switch(direcao) {
 			case DIREITA: posicao.setPosicao(
-					posicaoAtual.x + 1, 
-					posicaoAtual.y);
+					posicao.x + 1, 
+					posicao.y);
 			break;
 			
 			case ESQUERDA: posicao.setPosicao(
-					posicaoAtual.x - 1, 
-					posicaoAtual.y);
+					posicao.x - 1, 
+					posicao.y);
 			break;
 			
 			case CIMA: posicao.setPosicao(
-					posicaoAtual.x, 
-					posicaoAtual.y - 1);
+					posicao.x, 
+					posicao.y - 1);
 			break;
 			
 			case BAIXO: posicao.setPosicao(
-					posicaoAtual.x, 
-					posicaoAtual.y + 1);
+					posicao.x, 
+					posicao.y + 1);
 			break;
 		}
 	}
 	
+	public Posicao getPosicao() {
+		return posicao;
+	}
+	
 	@Override
 	public String toString() {
-		var posicaoAtual = posicao.getPosicao();
-		return "(" + posicaoAtual.x + "," +
-				" " + posicaoAtual.y + ")" 
+		return "Posição atual - " +
+				"(" + posicao.x + "," +
+				"" + posicao.y + ")" +
+				" | " + "Vida - " + vida + "%"
 				;
 	}
 	
@@ -47,13 +72,10 @@ public class Jogador {
 			y = 0;
 		}
 		
-		public void setPosicao(int x, int y) {
+		private void setPosicao(int x, int y) {
 			this.x = x;
 			this.y = y;
 		}
 		
-		public Posicao getPosicao() {
-			return this;
-		}
 	}
 }
