@@ -36,6 +36,51 @@ public class JogadorTeste {
 		}
 		
 		System.out.println(jogador);
+		System.out.println();
 		
+		Jogador heroi = new Heroi(1,1);
+		Jogador monstro = new Monstro(-1,-1);
+		
+		System.out.println(heroi);
+		System.out.println(monstro);
+		System.out.println();
+		
+		heroi.atacar(monstro);
+		monstro.atacar(heroi);
+		
+		System.out.println(heroi);
+		System.out.println(monstro);
+		System.out.println();
+		
+		monstro.andar(Direcao.BAIXO);
+		heroi.atacar(monstro);
+		monstro.atacar(heroi);
+		
+		System.out.println(heroi);
+		System.out.println(monstro);
+		System.out.println();
+		
+		System.out.println("INICIO BATALHA!!!");
+		System.out.println(heroi);
+		System.out.println("==> CONTRA <==");
+		System.out.println(monstro);
+		while(true) {
+			if(!heroi.estaVivo()) {
+				System.out.println("Herói morreu!");
+				System.out.println();
+				break;
+			}
+			if(!monstro.estaVivo()) {
+				System.out.println("Monstro morreu!");
+				System.out.println();
+				break;
+			}
+			heroi.atacar(monstro);
+			monstro.atacar(heroi);
+		}
+		
+		System.out.println(heroi);
+		System.out.println(monstro);
+		System.out.println();
 	}
 }

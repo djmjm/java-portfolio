@@ -2,8 +2,8 @@ package poopatterns.heranca;
 
 public class Jogador {
 	
-	private Posicao posicao = new Posicao();
-	private int vida = 100;
+	protected Posicao posicao = new Posicao();
+	protected int vida = 100;
 	
 	public Jogador() {}
 	public Jogador(int x, int y) {
@@ -50,6 +50,10 @@ public class Jogador {
 		}
 	}
 	
+	public boolean estaVivo() {
+		return (vida > 0);
+	}
+	
 	public Posicao getPosicao() {
 		return posicao;
 	}
@@ -59,7 +63,7 @@ public class Jogador {
 		return "Posição atual - " +
 				"(" + posicao.x + "," +
 				"" + posicao.y + ")" +
-				" | " + "Vida - " + vida + "%"
+				" | " + "Vida - " + vida
 				;
 	}
 	
