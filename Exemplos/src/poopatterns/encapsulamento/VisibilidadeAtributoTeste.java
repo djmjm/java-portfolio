@@ -1,6 +1,4 @@
 package poopatterns.encapsulamento;
-import poopatterns.encapsulamento.grupo1.*;
-import poopatterns.encapsulamento.grupo2.*;
 
 public class VisibilidadeAtributoTeste {
 	public static void main(String[] args) {
