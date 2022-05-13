@@ -5,6 +5,7 @@ import java.util.List;
 
 public class DesafioTeste {
 	public static void main(String[] args) {
+		
 		Cliente cliente1 = new Cliente();
 		Cliente cliente2 = new Cliente("Douglas");
 		Cliente cliente3 = new Cliente("Pedro");
@@ -52,8 +53,6 @@ public class DesafioTeste {
 		System.out.println(produto4);
 		System.out.println(produto5);
 		System.out.println();
-		
-		
 		
 	}
 }

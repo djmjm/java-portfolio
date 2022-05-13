@@ -18,6 +18,10 @@ public class Item {
 		return quantidade;
 	}
 	
+	public String getNomeProduto() {
+		return produto.getNome();
+	}
+	
 	@Override
 	public String toString() {
 		return new String(
@@ -29,4 +33,5 @@ public class Item {
 				);
 				
 	}
+	
 }

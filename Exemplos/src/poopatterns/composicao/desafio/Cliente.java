@@ -1,7 +1,9 @@
 package poopatterns.composicao.desafio;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 public class Cliente {
 	private final String nome;
@@ -20,6 +22,13 @@ public class Cliente {
 		compras.add(compra);
 	}
 	
+	public void comprar(Item item) {
+		List<Item> itens = new ArrayList<Item>();
+		itens.add(item);
+		Compra compra = new Compra(this, itens);
+		compras.add(compra);
+	}
+	
 	public String getNome() {
 		return nome;
 	}
@@ -30,6 +39,22 @@ public class Cliente {
 			total += compra.getCustoTotal();
 		}
 		return total;
+	}
+	
+	public List<Compra> getListaCompras(){
+		return compras;
+	}
+	
+	public Set<String> getNomesItensComprados(){
+		Set<String> nomes = new HashSet<String>();
+		
+		for(Compra compra : compras) {
+			for(String nome : compra.getListaItemsNome()) {
+				nomes.add(nome);
+			}
+		}
+		
+		return nomes;
 	}
 	
 	@Override

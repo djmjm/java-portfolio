@@ -19,6 +19,23 @@ public class Compra {
 		}
 	}
 	
+	public List<Item> getListaItems(){
+		return itens;
+	}
+	
+	public List<String> getListaItemsNome(){
+		List<String> itens = new ArrayList<String>();
+		
+		for(Item item : this.itens) {
+			var nome = item.getNomeProduto();
+			if( !itens.contains(nome) ) {
+				itens.add(nome);
+			}
+		}
+		
+		return itens;
+	}
+	
 	public double getCustoTotal() {
 		return custoTotal;
 	}
