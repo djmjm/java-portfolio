@@ -20,7 +20,7 @@ public class ReduceExemplo2 {
 		Predicate<Integer> par = n -> n % 2 == 0;
 		BinaryOperator<Integer> soma = (total, n) -> total + n;
 		
-		var conjunto = getCojuntoNaturais(100);
+		var conjunto = getCojuntoNaturais(10);
 		
 		System.out.println(conjunto);
 		
