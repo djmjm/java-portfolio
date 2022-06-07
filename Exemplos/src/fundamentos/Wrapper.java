@@ -1,5 +1,8 @@
 package fundamentos;
 
+/** retirando warnings (apenas exemplo para estudo) **/
+@SuppressWarnings({ "all", "unused"})
+
 public class Wrapper {
 	public static void main(String[] args) {
 		Integer inteiro = 3333;

@@ -1,5 +1,8 @@
 package poo;
 
+/** retirando warnings (apenas exemplo para estudo) **/
+@SuppressWarnings({ "all", "unused"})
+
 public class ConstrutorExemplo {
 	
 	public Construtor1 construtor1;

@@ -1,5 +1,8 @@
 package fundamentos;
 
+/** retirando warnings (apenas exemplo para estudo) **/
+@SuppressWarnings({ "all", "unused"})
+
 public class OperadorTernario {
 	public static void main(String[] args) {
 		boolean questao_1 = true ? true : false;

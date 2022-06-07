@@ -1,5 +1,8 @@
 package fundamentos;
 
+/** retirando warnings (apenas exemplo para estudo) **/
+@SuppressWarnings({ "all", "unused"})
+
 public class OperadoresRelacionais {
 	public static void main(String[] args) {
 		final int numero = 1;

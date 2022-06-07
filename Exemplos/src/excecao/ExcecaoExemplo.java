@@ -2,6 +2,9 @@ package excecao;
 
 import poopatterns.composicao.Aluno;
 
+/** retirando warnings (apenas exemplo para estudo) **/
+@SuppressWarnings({ "all", "unused"})
+
 public class ExcecaoExemplo {
 	public static void main(String[] args) {
 		

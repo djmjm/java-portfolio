@@ -1,5 +1,8 @@
 package poo;
 
+/** retirando warnings (apenas exemplo para estudo) **/
+@SuppressWarnings({ "all", "unused"})
+
 public class EscopoEstaticoExemplo {
 	public int atributo_objeto;
 	public static int atributo_classe;

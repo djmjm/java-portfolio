@@ -6,7 +6,11 @@ import java.util.EmptyStackException;
 import java.util.Scanner;
 import java.util.Stack;
 
+/** retirando warnings (apenas exemplo para estudo) **/
+@SuppressWarnings({ "all", "unused"})
+
 public class DesafioCalculadora {
+	
 	public static void main(String[] args) {
 		Scanner leitor = new Scanner(System.in);
 		String linha = leitor.nextLine();
@@ -135,10 +139,12 @@ class Calculadora{
 		}
 	}
 	
+	@SuppressWarnings("unused")
 	private boolean checarSoma(String valor) {
 		return valor.equals("+") ? true : false;
 	}
 	
+	@SuppressWarnings("unused")
 	private boolean checarSubtracao(String valor) {
 		return valor.equals("-") ? true : false;
 	}

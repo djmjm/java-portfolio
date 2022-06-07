@@ -1,5 +1,8 @@
 package excecao.personalizada;
 
+/** retirando warnings (apenas exemplo para estudo) **/
+@SuppressWarnings({ "all", "unused"})
+
 public class Aluno {
 	private String nome;
 	private Integer nota;

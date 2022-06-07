@@ -8,6 +8,9 @@ import java.util.function.BiFunction;
 import java.util.function.BinaryOperator;
 import java.util.function.Function;
 
+/** retirando warnings (apenas exemplo para estudo) **/
+@SuppressWarnings({ "all", "unused"})
+
 public class BiFuncaoExemplo {
 	
 	private static BinaryOperator<Double> media = 

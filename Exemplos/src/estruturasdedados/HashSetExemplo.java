@@ -2,6 +2,9 @@ package estruturasdedados;
 
 import java.util.HashSet;
 
+/** retirando warnings (apenas exemplo para estudo) **/
+@SuppressWarnings({ "all", "unused"})
+
 public class HashSetExemplo {
 	public static void main(String[] args) {
 		HashSet conjuntoHeterogeneo = new HashSet();

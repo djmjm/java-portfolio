@@ -1,5 +1,8 @@
 package poo;
 
+/** retirando warnings (apenas exemplo para estudo) **/
+@SuppressWarnings({ "all", "unused"})
+
 public class EscopoEstaticoExemploTeste {
 	public static void main(String[] args) {
 		EscopoEstaticoExemplo objeto_1 = new EscopoEstaticoExemplo();

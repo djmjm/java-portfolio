@@ -6,6 +6,9 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.stream.Stream;
 
+/** retirando warnings (apenas exemplo para estudo) **/
+@SuppressWarnings({ "all", "unused"})
+
 public class ImprimindoObjetosExemplo {
 	public static void main(String[] args) {
 		List<String> libertadores = Arrays.asList(

@@ -1,5 +1,8 @@
 package poopatterns.composicao;
 
+/** retirando warnings (apenas exemplo para estudo) **/
+@SuppressWarnings({ "all", "unused"})
+
 public class Motor {
 	private final Carro carro;
 	

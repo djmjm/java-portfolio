@@ -1,5 +1,8 @@
 package fundamentos;
 
+/** retirando warnings (apenas exemplo para estudo) **/
+@SuppressWarnings({ "all", "unused"})
+
 public class ObjetoTipoPrimitivo {
 	public static void main(String[] args) {
 		String palavra_1 = "palavra";

@@ -2,6 +2,9 @@ package poopatterns.composicao;
 
 import java.util.ArrayList;
 
+/** retirando warnings (apenas exemplo para estudo) **/
+@SuppressWarnings({ "all", "unused"})
+
 public class Item {
 	
 	private String nome;

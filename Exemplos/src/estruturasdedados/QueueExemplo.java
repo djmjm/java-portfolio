@@ -3,6 +3,9 @@ package estruturasdedados;
 import java.util.LinkedList;
 import java.util.Queue;
 
+/** retirando warnings (apenas exemplo para estudo) **/
+@SuppressWarnings({ "all", "unused"})
+
 public class QueueExemplo {
 	public static void main(String[] args) {
 		Queue fila = new LinkedList();
