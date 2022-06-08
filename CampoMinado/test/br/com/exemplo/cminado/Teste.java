@@ -13,5 +13,14 @@ class Teste {
 		var obj = new String("DOUGLAS");
 		assertEquals(obj, "DOUGLAS");
 	}
+	
+	@Test
+	void operadorIncremento() {
+		int x = 1;
+		
+		assertEquals(++x, 2);
+		x++;
+		assertEquals(--x, 2);
+	}
 
 }
