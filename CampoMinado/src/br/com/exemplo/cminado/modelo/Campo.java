@@ -17,12 +17,38 @@ public class Campo {
 	private List<Campo> vizinhos = 
 				new ArrayList<Campo>();
 	
-	Campo(int linha, int coluna){
+	public Campo(int linha, int coluna){
 		this.linha = linha;
 		this.coluna = coluna;
 	}
 	
-	boolean adicionarVizinho(Campo vizinho){
-		return true;
+	public boolean adicionarVizinho(int x, int y) {
+		var campo = new Campo(x, y);
+		return adicionarVizinho(campo);
+	}
+	
+	public boolean adicionarVizinho(Campo vizinho){
+		
+		boolean linhaDiferente = linha != vizinho.linha;
+		boolean colunaDiferente = coluna != vizinho.coluna;
+		boolean diagonal = linhaDiferente && colunaDiferente;
+		
+		int deltaLinha = Math.abs(linha - vizinho.linha);
+		int deltaColuna = Math.abs(coluna - vizinho.coluna);
+		int deltaGeral = deltaColuna + deltaLinha;
+		
+		boolean adjsPerpendicular = deltaGeral == 1 &&
+									!diagonal;
+		
+		boolean adjsDiagonal = deltaGeral == 2 &&
+							   diagonal;
+		
+		if( adjsPerpendicular ||
+			adjsDiagonal	) {
+			  vizinhos.add(vizinho);
+			  return true;
+		}else{
+		      return false; 
+		}
 	}
 }
