@@ -6,6 +6,8 @@ package br.com.exemplo.cminado.modelo;
 import java.util.ArrayList;
 import java.util.List;
 
+import br.com.exemplo.cminado.excecao.ExplosaoException;
+
 public class Campo {
 	private final int linha;
 	private final int coluna;
@@ -18,8 +20,8 @@ public class Campo {
 				new ArrayList<Campo>();
 	
 	public Campo(int linha, int coluna){
-		this.linha = linha;
-		this.coluna = coluna;
+		this.linha = Math.max(linha, 0);
+		this.coluna = Math.max(coluna, 0);
 	}
 	
 	public boolean adicionarVizinho(int x, int y) {
@@ -50,5 +52,94 @@ public class Campo {
 		}else{
 		      return false; 
 		}
+	}
+	
+	public void alterarMinado() {
+		if( !aberto ) {
+			minado = !minado;
+		}
+	}
+	
+	public void alterarMarcacao() {
+		if( !aberto ) {
+			marcado = !marcado;
+		}
+	}
+	
+	public boolean abrir() {
+		if(!aberto && 
+		   !marcado) {
+			
+			aberto = true;
+			
+			if(minado) {
+				throw new ExplosaoException();
+			}
+			
+			if( vizinhancaSegura() ) {
+				vizinhos.forEach( v -> v.abrir() );
+			}
+			
+			return true;
+		}
+		
+		return false;
+	}
+	
+	public boolean vizinhancaSegura() {
+		return vizinhos.stream().noneMatch(v -> v.minado);
+	}
+	
+	public boolean isMarcado() {
+		return marcado;
+	}
+	
+	public boolean isAberto() {
+		return aberto;
+	}
+	
+	public boolean isMinado() {
+		return minado;
+	}
+
+	public int getLinha() {
+		return linha;
+	}
+
+	public int getColuna() {
+		return coluna;
+	}
+	
+	boolean objetivoAlcancado() {
+		boolean desvendado = !minado && aberto;
+		boolean protegido = minado && marcado;
+		
+		return desvendado || protegido;
+	}
+	
+	long minasNaVizinhanca() {
+		return vizinhos.stream().filter(c -> c.minado).count();
+	}
+	
+	void reiniciar() {
+		aberto = false;
+		marcado = false;
+		minado = false;
+	}
+	
+	@Override
+	public String toString() {
+		if( marcado ) { return "x"; };
+		
+		if( aberto && minado ) { return "*"; };
+		
+		if( aberto && 
+			minasNaVizinhanca() > 0 )
+		{ return Long.toString(minasNaVizinhanca()); };
+		
+		if( aberto ) { return " "; };
+		
+		return "?";
+		
 	}
 }
