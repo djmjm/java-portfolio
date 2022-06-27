@@ -3,8 +3,6 @@ package br.com.exemplo.cminado.modelo;
 import java.util.ArrayList;
 import java.util.List;
 
-import br.com.exemplo.cminado.excecao.ExplosaoException;
-
 public class Campo {
 	private final int linha;
 	private final int coluna;
@@ -16,9 +14,22 @@ public class Campo {
 	private List<Campo> vizinhos = 
 				new ArrayList<Campo>();
 	
+	private List<CampoObservador> observadores =
+			new ArrayList<CampoObservador>();
+	
 	public Campo(int linha, int coluna){
 		this.linha = Math.max(linha, 0);
 		this.coluna = Math.max(coluna, 0);
+	}
+	
+	public void registrarObservador( CampoObservador observador ) {
+		observadores.add(observador);
+	}
+	
+	private void notificarObservadores(CampoEvento evento) {
+		observadores.stream().
+			forEach(o -> o.eventoOcorreu(this, evento)
+					);
 	}
 	
 	public boolean adicionarVizinho(int x, int y) {
@@ -60,6 +71,14 @@ public class Campo {
 	public void alterarMarcacao() {
 		if( !aberto ) {
 			marcado = !marcado;
+			
+			if(marcado) {
+				notificarObservadores(CampoEvento.MARCAR);
+			}
+			else {
+				notificarObservadores(CampoEvento.DESMARCAR);
+			}
+			
 		}
 	}
 	
@@ -67,12 +86,12 @@ public class Campo {
 		if(!aberto && 
 		   !marcado) {
 			
-			aberto = true;
-			
 			if(minado) {
-				//TODO implementar nova versão
-				// FIXME
+				notificarObservadores(CampoEvento.EXPLODIR);
+				return true;
 			}
+			
+			setAberto(true);
 			
 			if( vizinhancaSegura() ) {
 				//FIXME corrigir metodo abrir em nova versão.
@@ -111,6 +130,10 @@ public class Campo {
 	
 	public void setAberto(boolean aberto) {
 		this.aberto = aberto;
+		
+		if(aberto) {
+			notificarObservadores(CampoEvento.ABRIR);
+		}
 	}
 	
 	boolean objetivoAlcancado() {
