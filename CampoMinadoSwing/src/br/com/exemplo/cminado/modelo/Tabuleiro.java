@@ -2,17 +2,21 @@ package br.com.exemplo.cminado.modelo;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.function.Consumer;
 import java.util.function.Predicate;
 
 import br.com.exemplo.cminado.excecao.ExplosaoException;
 
-public class Tabuleiro {
+public class Tabuleiro implements CampoObservador{
 	private int linhas;
 	private int colunas;
 	private int minas;
 	
 	private final List<Campo> campos = 
 			new ArrayList<>();
+	
+	private final List< Consumer<Boolean> > observadores =
+			new ArrayList< Consumer<Boolean> >();
 	
 	public Tabuleiro(int linhas,
 					 int colunas,
@@ -27,21 +31,31 @@ public class Tabuleiro {
 		sortearMinas();
 	}
 	
+	public void registrarObservador(Consumer<Boolean> observador) {
+		observadores.add(observador);
+	}
+	
+	private void notificarObservadores(boolean resultado) {
+		observadores.stream().forEach(
+					o -> o.accept(resultado)
+				);
+	}
+	
 	public void abrir(int linha, int coluna) {
-		try {
-			campos.parallelStream()
-				  .filter(c -> c.getLinha() == linha
-				  		  &&
-				  		  c.getColuna() == coluna
-						  )
-				  .findFirst()
-				  .ifPresent(c -> c.abrir());
-		}
-		catch(ExplosaoException e) {
-			//FIXME ajustar tabuleiro nova versão
-			campos.forEach(c -> c.setAberto(true));
-			throw e;
-		}
+		campos.parallelStream()
+			  .filter(c -> c.getLinha() == linha
+			  		  &&
+			  		  c.getColuna() == coluna
+					  )
+			  .findFirst()
+			  .ifPresent(c -> c.abrir());
+	}
+	
+	public void mostrarMinas() {
+		campos.
+			stream().
+			filter(c -> c.isMinado()).
+			forEach(c -> c.setAberto(true));
 	}
 	
 	public void marcar(int linha, int coluna) {
@@ -57,7 +71,9 @@ public class Tabuleiro {
 	public void gerarCampos() {
 		for(int linha = 0; linha < linhas; linha++) {
 			for(int coluna = 0; coluna < colunas; coluna++) {
-				campos.add(new Campo(linha, coluna) );
+				Campo campo = new Campo(linha, coluna);
+				campo.registrarObservador(this);
+				campos.add( campo );
 			}
 		}
 	}
@@ -74,6 +90,11 @@ public class Tabuleiro {
 		long minasArmadas = 0;
 		Predicate<Campo> minado = c -> c.isMinado();
 		
+		if(campos.size() <= minas) {
+			campos.forEach(c -> c.alterarMinado());
+			return;
+		}
+		
 		do {
 			minasArmadas = campos.stream().filter(minado)
 							     .count()
@@ -82,7 +103,7 @@ public class Tabuleiro {
 								   campos.size()
 								 )
 								 ;
-			campos.get(aleatorio).alterarMinado();;
+			campos.get(aleatorio).alterarMinado();
 			
 		}while(minasArmadas < minas);
 	}
@@ -97,5 +118,28 @@ public class Tabuleiro {
 	public void reiniciar() {
 		campos.stream().forEach(c -> c.reiniciar());
 		sortearMinas();
+	}
+	
+	public void printCampos() {
+		for(Campo campo : campos) {
+			System.out.println(
+					campo.isAberto() + " | " +
+					campo.isMarcado() + " | " +
+					campo.isMinado() + " ; "
+					);
+		}
+	}
+
+	@Override
+	public void eventoOcorreu(Campo campo, CampoEvento evento) {
+		if(evento == CampoEvento.EXPLODIR) {
+			mostrarMinas();
+			notificarObservadores(false);
+		}
+		else 
+		if( objetivoAlcancado() ){
+			notificarObservadores(true);
+		}
+		
 	}
 }
