@@ -6,6 +6,8 @@ import java.awt.event.MouseListener;
 
 import javax.swing.BorderFactory;
 import javax.swing.JButton;
+import javax.swing.SwingUtilities;
+
 import br.com.exemplo.cminado.modelo.Campo;
 import br.com.exemplo.cminado.modelo.CampoEvento;
 import br.com.exemplo.cminado.modelo.CampoObservador;
@@ -53,10 +55,15 @@ public class BotaoCampo extends JButton
 				break;
 		}
 		
+		SwingUtilities.invokeLater( () -> {
+			repaint(); validate();
+		});
+		
 	}
 
 	private void aplicarEstiloPadrao() {
 		setBackground(BG_PADRAO);
+		setBorder(BorderFactory.createBevelBorder(0));
 		setText("");
 	}
 

@@ -94,7 +94,6 @@ public class Campo {
 			setAberto(true);
 			
 			if( vizinhancaSegura() ) {
-				//FIXME corrigir metodo abrir em nova versão.
 				vizinhos.forEach( v -> v.abrir() );
 			}
 			
@@ -136,7 +135,7 @@ public class Campo {
 		}
 	}
 	
-	boolean objetivoAlcancado() {
+	public boolean objetivoAlcancado() {
 		boolean desvendado = !minado && aberto;
 		boolean protegido = minado && marcado;
 		
@@ -151,6 +150,7 @@ public class Campo {
 		aberto = false;
 		marcado = false;
 		minado = false;
+		notificarObservadores(CampoEvento.REINICIAR);
 	}
 	
 }

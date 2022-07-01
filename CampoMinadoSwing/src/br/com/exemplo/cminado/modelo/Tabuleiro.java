@@ -2,15 +2,14 @@ package br.com.exemplo.cminado.modelo;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 import java.util.function.Consumer;
 import java.util.function.Predicate;
-
-import br.com.exemplo.cminado.excecao.ExplosaoException;
 
 public class Tabuleiro implements CampoObservador{
 	private final int linhas;
 	private final int colunas;
-	private final int minas;
+	private int minas;
 	
 	private final List<Campo> campos = 
 			new ArrayList<>();
@@ -122,6 +121,7 @@ public class Tabuleiro implements CampoObservador{
 	
 	public void reiniciar() {
 		campos.stream().forEach(c -> c.reiniciar());
+		minas = new Random().nextInt(30);
 		sortearMinas();
 	}
 	
@@ -133,6 +133,14 @@ public class Tabuleiro implements CampoObservador{
 
 	public int getColunas() {
 		return colunas;
+	}
+	
+	public int getQuantidadeMinas() {
+		return (int) 
+			   campos.stream()
+			   .filter(c -> c.isMinado())
+			   .count()
+			   ;
 	}
 
 	public void printCampos() {
@@ -147,6 +155,7 @@ public class Tabuleiro implements CampoObservador{
 
 	@Override
 	public void eventoOcorreu(Campo campo, CampoEvento evento) {
+		
 		if(evento == CampoEvento.EXPLODIR) {
 			mostrarMinas();
 			notificarObservadores(false);

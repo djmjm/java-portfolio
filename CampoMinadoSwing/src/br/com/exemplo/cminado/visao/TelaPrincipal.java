@@ -1,5 +1,7 @@
 package br.com.exemplo.cminado.visao;
 
+import java.util.Random;
+
 import javax.swing.JFrame;
 import br.com.exemplo.cminado.modelo.Tabuleiro;
 
@@ -8,7 +10,9 @@ public class TelaPrincipal extends JFrame{
 	
 	public TelaPrincipal() {
 		Tabuleiro tabuleiro = 
-				new Tabuleiro(16, 30, 50);
+				new Tabuleiro(16, 30, new Random().
+										  nextInt(30)
+							);
 		
 		PainelTabuleiro painelTabuleiro =
 				new PainelTabuleiro(tabuleiro);
