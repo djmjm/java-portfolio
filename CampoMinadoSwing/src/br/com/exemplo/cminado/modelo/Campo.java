@@ -143,8 +143,8 @@ public class Campo {
 		return desvendado || protegido;
 	}
 	
-	long minasNaVizinhanca() {
-		return vizinhos.stream().filter(c -> c.minado).count();
+	public int minasNaVizinhanca() {
+		return (int) vizinhos.stream().filter(c -> c.minado).count();
 	}
 	
 	void reiniciar() {
