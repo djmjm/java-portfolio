@@ -7,6 +7,8 @@ import java.awt.Font;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
+import br.com.exemplo.calculadora.modelo.Memoria;
+
 @SuppressWarnings("serial")
 public class Display extends JPanel{
 	
@@ -14,7 +16,10 @@ public class Display extends JPanel{
 	
 	public Display() {
 		setBackground( Color.WHITE );
-		label = new JLabel("1114,5");
+		label = new JLabel(Memoria.
+						   getInstancia().
+						   getTextoAtual()
+				);
 		label.setForeground(new Color(46, 49, 50) );
 		label.setFont(new Font("courier", 
 						  Font.PLAIN,
