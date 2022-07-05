@@ -8,13 +8,17 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 import br.com.exemplo.calculadora.modelo.Memoria;
+import br.com.exemplo.calculadora.modelo.MemoriaObservador;
 
 @SuppressWarnings("serial")
-public class Display extends JPanel{
+public class Display extends JPanel
+	implements MemoriaObservador{
 	
 	private final JLabel label;
 	
 	public Display() {
+		Memoria.getInstancia().adicionarObservador(this);
+		
 		setBackground( Color.WHITE );
 		label = new JLabel(Memoria.
 						   getInstancia().
@@ -29,5 +33,10 @@ public class Display extends JPanel{
 		setLayout( new FlowLayout(FlowLayout.RIGHT) );
 		
 		add(label);
+	}
+
+	@Override
+	public void valorAlterador(String novoValor) {
+		label.setText(novoValor);
 	}
 }
