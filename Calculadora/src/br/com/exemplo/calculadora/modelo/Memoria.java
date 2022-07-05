@@ -68,12 +68,76 @@ public class Memoria {
 							substituir = false;
 							break;
 			
-			default: 	break;
+			default: 	substituir = true;
+						textoAtual = obterResultadoOperacao();
+						textoBuffer = textoAtual;
+						ultimaOperacao = tipoComando;
+						break;
 		}
 		
 		observadores.forEach(o ->
 					o.valorAlterador(getTextoAtual())
 				);
+	}
+
+	private String obterResultadoOperacao() {
+		if(ultimaOperacao == null) {
+			return textoAtual;
+		}
+		
+		double numeroBuffer = Double.parseDouble(
+									textoBuffer.
+									replace(",", ".")
+								)
+				;
+		
+		double numeroAtual = Double.parseDouble(
+									textoAtual.
+									replace(",", ".")
+								)
+				;
+		
+		double resultado = 0;
+		
+		switch(ultimaOperacao) {
+		
+			case SOMA:	resultado = numeroBuffer +
+									numeroAtual
+									;
+						break;
+						
+			case SUB:	resultado = numeroBuffer -
+									numeroAtual
+									;
+						break;
+						
+			case MULT:	resultado = numeroBuffer *
+									numeroAtual
+									;
+						break;
+						
+			case DIV:	resultado = numeroBuffer /
+									numeroAtual
+									;
+						break;
+						
+			default: break;
+		
+		}
+		
+		String resultadoString = Double.
+								 toString(resultado).
+								 replace(".", ",")
+								 ;
+		
+		boolean isInteiro = resultadoString.endsWith(",0");
+		
+		return (isInteiro 
+					? resultadoString.replace(",0", "")
+					: resultadoString
+				)
+				;
+
 	}
 
 	private TipoComando detectarTipoComando(
