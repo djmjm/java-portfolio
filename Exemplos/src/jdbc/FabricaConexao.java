@@ -5,10 +5,10 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 
 public class FabricaConexao {
-	public static Connection getConexao() {
+	public static Connection getConexao(String db_nome) {
 		try {
 		final String url = 
-				"jdbc:mariadb://localhost:3306/?"
+				"jdbc:mariadb://localhost:3306/"+ db_nome +"?"
 				+ "verifyServerCertificate=false"
 				+ "&"
 				+"useSSL=false"
@@ -26,5 +26,9 @@ public class FabricaConexao {
 			throw new RuntimeException(e);
 		}
 
+	}
+	
+	public static Connection getConexao() {
+		return getConexao("");
 	}
 }
