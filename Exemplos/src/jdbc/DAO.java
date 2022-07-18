@@ -71,4 +71,16 @@ public class DAO {
 		conexao = FabricaConexao.getConexaoArquivoProperties();
 		return conexao;
 	}
+	
+	private void close() {
+		try {
+			getConexao().close();
+		}
+		catch(SQLException e) {
+			
+		}
+		finally {
+			conexao = null;
+		}
+	}
 }
