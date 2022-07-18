@@ -31,4 +31,8 @@ public class FabricaConexao {
 	public static Connection getConexao() {
 		return getConexao("");
 	}
+	
+	public static Connection getConexao(boolean _default) {
+		return getConexao("java_exemplo_db");
+	}
 }
