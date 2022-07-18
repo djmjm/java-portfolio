@@ -26,13 +26,15 @@ public class DAO {
 						stmt.getGeneratedKeys();
 				
 				if( resultado.next() ) {
+					close();
 					return resultado.getInt(1);
 				}
 			}
-			
+			close();
 			return -1;
 		}
 		catch(SQLException e) {
+			close();
 			throw new RuntimeException(e);
 		}
 	}
