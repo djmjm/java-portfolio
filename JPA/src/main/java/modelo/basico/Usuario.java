@@ -12,7 +12,6 @@ public class Usuario {
 	private String email;
 	
 	public Usuario() {
-		// TODO Auto-generated constructor stub
 	}
 
 	public Usuario(String nome, String email) {
