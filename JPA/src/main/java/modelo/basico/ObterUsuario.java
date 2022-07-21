@@ -4,7 +4,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 
-public class NovoUsuario {
+public class ObterUsuario {
 	public static void main(String[] args) {
 		EntityManagerFactory entityManagerFactory =
 				Persistence.createEntityManagerFactory(
@@ -16,19 +16,14 @@ public class NovoUsuario {
 				createEntityManager()
 				;
 		
-		Usuario novoUsuario = new Usuario(
-					"Douglas", "douglasjm@gmail.com"
-				)
+		Usuario usuario = 
+				entityManager.find(Usuario.class, 1L)
 				;
-		
-		novoUsuario.setId(1L);
-		
-		entityManager.getTransaction().begin();;
-		entityManager.persist(novoUsuario);
-		entityManager.getTransaction().commit();
 		
 		entityManager.close();
 		entityManagerFactory.close();
-			
+		
+		System.out.println(usuario.getNome());
+		System.out.println(usuario.getEmail());
 	}
 }
