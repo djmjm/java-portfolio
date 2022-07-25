@@ -18,6 +18,7 @@ public class DAO <E> {
 
 	private EntityManager 
 			entityManager;
+	
 	private Class<E> classe;
 	
 	static {
@@ -65,6 +66,10 @@ public class DAO <E> {
 		return this.abrirT().incluir(entidade).fecharT();
 	}
 	
+	public List<E> obterTodos(){
+		return obterTodos(99999, 0);
+	}
+	
 	public List<E> obterTodos(
 			int quantidadeRegistros,
 			int deslocamento
@@ -76,7 +81,7 @@ public class DAO <E> {
 			;
 		}
 		
-		String jpql = "select e from"
+		String jpql = "select e from "
 					  + classe.getName()
 					  + " e"
 					  ;
