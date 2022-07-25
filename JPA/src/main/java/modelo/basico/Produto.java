@@ -10,7 +10,7 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "produtos", 
 	   schema = "java_exemplo_hibernate")
-public class Produto {
+public class Produto{
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)

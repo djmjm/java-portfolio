@@ -23,9 +23,9 @@ public class NovoUsuario {
 				)
 				;
 		
-		novoUsuario.setId(444L);
+		novoUsuario.setId(3547L);
 		
-		entityManager.getTransaction().begin();;
+		entityManager.getTransaction().begin();
 		entityManager.persist(novoUsuario);
 		entityManager.getTransaction().commit();
 		
