@@ -7,12 +7,15 @@ import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 import javax.persistence.TypedQuery;
 
-import modelo.basico.Entidade;
+//import modelo.basico.Entidade; 
+// comentado, sem uso no momento ...
+// relembrar conceito entidade marcação.
 
 public class DAO <E> {
 	private static 
 		EntityManagerFactory 
 		entityManagerFactory;
+
 	private EntityManager 
 			entityManager;
 	private Class<E> classe;
@@ -22,7 +25,7 @@ public class DAO <E> {
 			entityManagerFactory =
 					Persistence.
 					createEntityManagerFactory(
-							"java_exemplo_hibernate"
+							"Exemplos-jpa"
 							)
 					;
 		}
@@ -87,5 +90,6 @@ public class DAO <E> {
 	
 	public void fechar() {
 		entityManager.close();
+		entityManagerFactory.close();
 	}
 }

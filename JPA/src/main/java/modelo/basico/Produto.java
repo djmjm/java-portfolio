@@ -26,7 +26,17 @@ public class Produto{
 			scale = 2)
 	private Double preco;
 	
-	public Produto() { }
+	public Produto() {
+			nome = "Produto";
+			preco = 1.99;
+	}
+	public Produto(
+			String nome, 
+			Double preco
+			) {
+		this.nome = nome;
+		this.preco = preco;
+	}
 	
 	public Long getId() {
 		return id;
