@@ -13,8 +13,6 @@ public class Assento {
 	private Long id;
 	private String nome;
 	
-	
-	
 	public Assento(String nome) {
 		super();
 		this.nome = nome;
