@@ -93,6 +93,10 @@ public class DAO <E> {
 		return query.getResultList();
 	}
 	
+	public E obterPorId(Object id) {
+		return entityManager.find(classe, id);
+	}
+	
 	public void fechar() {
 		entityManager.close();
 		entityManagerFactory.close();
