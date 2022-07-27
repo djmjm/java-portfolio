@@ -10,6 +10,8 @@
 		<class>umpramuitos.ItemPedido</class>
 		<class>muitospramuitos.Tio</class>
 		<class>muitospramuitos.Sobrinho</class>
+		<class>muitospramuitos.Ator</class>
+		<class>muitospramuitos.Filme</class>
 		<properties>
 			<property name="javax.persistence.jdbc.driver" value="org.mariadb.jdbc.Driver"/>
 			<property name="javax.persistence.jdbc.url" value="jdbc:mariadb://localhost/java_exemplo_hibernate"/>
