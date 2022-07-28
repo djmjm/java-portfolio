@@ -55,7 +55,7 @@
 - [x] Exemplos de Aplicação Prática
 
 ## 🛠️ Tarefas em Andamento
-- [ ] Implementação com Hibernate
+- [x] Implementação com Hibernate
 - [ ] Exemplos JavaFX
 - [ ] Springboot
 
