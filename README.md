@@ -46,6 +46,7 @@
 - [Padrões de Projeto](https://github.com/djmjm/java-portfolio/tree/main/Exemplos/src/padroes)
 - [Interface Gráfica](https://github.com/djmjm/java-portfolio/tree/main/Exemplos/src/swing)
 - [Banco de Dados](https://github.com/djmjm/java-portfolio/tree/main/Exemplos/src/jdbc)
+- [Hibernate - JPA](https://github.com/djmjm/java-portfolio/tree/main/JPA/src/main/java)
 
 ## ✔️ Tarefas Concluídas
 - [x] Fundamentos
@@ -53,9 +54,9 @@
 - [x] Boas Práticas da Linguagem
 - [x] Framework para Banco de Dados
 - [x] Exemplos de Aplicação Prática
+- [x] Implementação com Hibernate
 
 ## 🛠️ Tarefas em Andamento
-- [ ] Implementação com Hibernate
 - [ ] Exemplos JavaFX
 - [ ] Springboot
 
