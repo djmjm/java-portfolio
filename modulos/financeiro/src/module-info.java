@@ -1,3 +1,5 @@
+
 module app.financeiro {
-	requires app.calculo;
+	requires app.api;
+	uses br.com.exemplo.app.Calculadora;
 }
