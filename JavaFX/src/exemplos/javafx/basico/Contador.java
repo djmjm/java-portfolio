@@ -17,7 +17,10 @@ public class Contador extends Application{
 	public void start(Stage primaryStage) throws Exception {
 		
 		Label labelTitulo = new Label("Contador");
+		labelTitulo.getStyleClass().add("titulo");	
+		
 		Label labelNumero = new Label(contador.toString());
+		labelNumero.getStyleClass().add("numero");	
 		
 		Button botaoIncremento = new Button("+");
 		botaoIncremento.setOnAction(
@@ -47,18 +50,29 @@ public class Contador extends Application{
 		boxBotoes.getChildren().add(botaoDecremento);
 		boxBotoes.getChildren().add(botaoIncremento);
 		
-		VBox boxPrincipal = new VBox();
-		boxPrincipal.setAlignment(Pos.CENTER);
-		boxPrincipal.setSpacing(10);
-		boxPrincipal.getChildren().add(labelTitulo);
-		boxPrincipal.getChildren().add(labelNumero);
-		boxPrincipal.getChildren().add(boxBotoes);
+		VBox boxConteudo = new VBox();
+		boxConteudo.getStyleClass().add("conteudo");
+		boxConteudo.setAlignment(Pos.CENTER);
+		boxConteudo.setSpacing(10);
+		boxConteudo.getChildren().add(labelTitulo);
+		boxConteudo.getChildren().add(labelNumero);
+		boxConteudo.getChildren().add(boxBotoes);
 		
+		String caminhoDoCSS = getClass().
+				getResource(
+				"Contador.css"
+				).toExternalForm()
+		;
+		String urlFont = 
+				"https://fonts.googleapis.com/css2?family=Oswald";
 		Scene cenaPrincipal = new Scene(
-									boxPrincipal,
+									boxConteudo,
 									400, 400
 									);
-		
+		cenaPrincipal.getStylesheets().
+					 add(caminhoDoCSS);
+		cenaPrincipal.getStylesheets()
+					 .add( urlFont );		
 		primaryStage.setScene(cenaPrincipal);
 		primaryStage.show();
 	}
