@@ -4,4 +4,5 @@ module exemplos.javafx {
 	requires javafx.graphics;
 	
 	opens exemplos.javafx.basico;
+	opens exemplos.javafx.layout;
 }
