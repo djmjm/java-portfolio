@@ -1,16 +1,16 @@
 .conteudo {
-	-fx-background-color: #4F2D90;
+	-fx-background-color: #1D1E2A;
 	-fx-font-family: "Oswald";
 }
 
 .titulo {
 	-fx-text-fill: #7B899F;
-	-fx-font-size: 36px;
+	-fx-font-size: 44px;
 }
 
 .numero {
 	-fx-text-fill: #7B899F;
-	-fx-font-size: 20px;
+	-fx-font-size: 32px;
 }
 
 .botoes {
@@ -20,4 +20,12 @@
 	-fx-min-width: 50px;
 	-fx-min-height: 40px;
 	-fx-background-radius: 18px;
+}
+
+.verde {
+	-fx-text-fill: #47A723;
+}
+
+.vermelho {
+	-fx-text-fill: #D33A2E;
 }
