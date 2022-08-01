@@ -9,6 +9,31 @@ public class AppLayout extends Application{
 	@Override
 	public void start(Stage primaryStage) throws Exception {
 		
+		/*
+		  Scene principal = new Scene(
+		 
+				criarCaixas(), 
+				800, 600)
+		;
+		*/
+		Scene principal = 
+				new Scene(
+						new TesteAnchorPane(),
+						800, 600
+						)
+				;
+		primaryStage.setScene(principal);
+		primaryStage.setTitle(
+				"Gerenciadores de Layout"
+		);
+		primaryStage.show();
+	}
+	
+	public static void main(String[] args) {
+		launch(args);
+	}
+	
+	private VBox criarCaixas() {
 		VBox temp = new VBox();
 		temp.getChildren().add(
 				new Caixa().
@@ -45,18 +70,6 @@ public class AppLayout extends Application{
 		)
 		;
 		
-		Scene principal = new Scene(temp, 
-				800, 600)
-				;
-		
-		primaryStage.setScene(principal);
-		primaryStage.setTitle(
-				"Gerenciadores de Layout"
-		);
-		primaryStage.show();
-	}
-	
-	public static void main(String[] args) {
-		launch(args);
+		return temp;
 	}
 }
