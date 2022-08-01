@@ -4,11 +4,20 @@
 }
 
 .titulo {
-	-fx-text-fill: #C4D2DA;
+	-fx-text-fill: #7B899F;
 	-fx-font-size: 36px;
 }
 
 .numero {
-	-fx-text-fill: #C4D2DA;
+	-fx-text-fill: #7B899F;
 	-fx-font-size: 20px;
+}
+
+.botoes {
+	-fx-background-color: #C4D2DA;
+	-fx-text-fill: #0C0B12;
+	-fx-font-size: 24px;
+	-fx-min-width: 50px;
+	-fx-min-height: 40px;
+	-fx-background-radius: 18px;
 }
