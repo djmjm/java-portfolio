@@ -13,11 +13,17 @@ extends Application{
 	@Override
 	public void start(Stage primaryStage) 
 			throws Exception {
+		String arquivoCSS = getClass().
+				getResource("Login.css").
+				toString();
+		
 		URL arquivoFXML = getClass().
 				getResource("Login.fxml");
+		
 		GridPane raiz = FXMLLoader.load(arquivoFXML);
 		
 		Scene cena = new Scene(raiz, 350, 400);
+		cena.getStylesheets().add(arquivoCSS);
 		
 		primaryStage.setResizable(false);
 		primaryStage.setTitle("Tela de Login");
