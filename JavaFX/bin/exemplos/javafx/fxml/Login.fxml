@@ -3,16 +3,16 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.control.*?>
 
-<GridPane xmlns:fx="http://javafx.com/fxml/1">
+<GridPane xmlns:fx="http://javafx.com/fxml/1" fx:controller="exemplos.javafx.fxml.LoginControlador">
 	<Label text="Seja Bem Vindo" GridPane.columnIndex="0" GridPane.rowIndex="0"></Label>
 	
 	<Label text="E-mail:" GridPane.columnIndex="0" GridPane.rowIndex="1"></Label>
-	<TextField GridPane.columnIndex="1" GridPane.rowIndex="1">  </TextField>
+	<TextField fx:id="campoEmail" GridPane.columnIndex="1" GridPane.rowIndex="1">  </TextField>
 	
 	<Label text="Senha:" GridPane.columnIndex="0" GridPane.rowIndex="2"></Label>
-	<PasswordField GridPane.columnIndex="1" GridPane.rowIndex="2">  </PasswordField>
+	<PasswordField fx:id="campoSenha" GridPane.columnIndex="1" GridPane.rowIndex="2">  </PasswordField>
 	
 	
-	<Button text="Entrar" GridPane.columnIndex="0" GridPane.rowIndex="3"></Button>
+	<Button text="Entrar" GridPane.columnIndex="0" GridPane.rowIndex="3" onAction="#entrar"></Button>
 </GridPane>
 
