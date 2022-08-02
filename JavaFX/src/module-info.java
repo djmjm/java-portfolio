@@ -1,4 +1,5 @@
 module exemplos.javafx {
+	requires org.controlsfx.controls;
 	requires javafx.base;
 	requires javafx.controls;
 	requires javafx.graphics;
