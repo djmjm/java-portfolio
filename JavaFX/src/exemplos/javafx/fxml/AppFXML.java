@@ -22,7 +22,7 @@ extends Application{
 		
 		GridPane raiz = FXMLLoader.load(arquivoFXML);
 		
-		Scene cena = new Scene(raiz, 350, 400);
+		Scene cena = new Scene(raiz, 350, 350);
 		cena.getStylesheets().add(arquivoCSS);
 		
 		primaryStage.setResizable(false);

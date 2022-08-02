@@ -7,9 +7,9 @@
 <GridPane xmlns:fx="http://javafx.com/fxml/1" fx:controller="exemplos.javafx.fxml.LoginControlador" styleClass="login" hgap="15" vgap="15">
 	<padding> <Insets left="40"  right="40" top="40" bottom="40" /> </padding>
 	
-	<columnConstraints> <ColumnConstraints minWidth="60" prefWidth="200" halignment="right"/> <ColumnConstraints prefWidth="200" maxWidth="Infinity" hgrow="ALWAYS" /> </columnConstraints>
+	<columnConstraints> <ColumnConstraints minWidth="60" prefWidth="100" halignment="right"/> <ColumnConstraints prefWidth="200" maxWidth="Infinity" hgrow="ALWAYS"/> </columnConstraints>
 
-	<Label text="Seja Bem Vindo" styleClass="login-titulo" GridPane.columnIndex="0" GridPane.rowIndex="0" GridPane.ColumnSpan="2" GridPane.halignment="CENTER"></Label>
+	<Label text="Seja Bem Vindo" styleClass="login-titulo" GridPane.columnIndex="0" GridPane.rowIndex="0" GridPane.ColumnSpan="2" GridPane.halignment="CENTER"> <GridPane.margin> <Insets top="20" bottom="20" /> </GridPane.margin> </Label>
 	
 	<Label text="E-mail:" styleClass="login-form-label" GridPane.columnIndex="0" GridPane.rowIndex="1"></Label>
 	<TextField fx:id="campoEmail" GridPane.columnIndex="1" GridPane.rowIndex="1">  </TextField>
@@ -18,6 +18,6 @@
 	<PasswordField fx:id="campoSenha" GridPane.columnIndex="1" GridPane.rowIndex="2">  </PasswordField>
 	
 	
-	<Button text="Entrar" styleClass="login-form-botao" GridPane.columnIndex="0" GridPane.rowIndex="3" GridPane.ColumnSpan="2" GridPane.halignment="CENTER" onAction="#entrar"></Button>
+	<Button text="Entrar" styleClass="login-form-botao" GridPane.columnIndex="0" GridPane.rowIndex="3" GridPane.ColumnSpan="2" GridPane.halignment="CENTER" onAction="#entrar"> <GridPane.margin> <Insets top="20" bottom="20" /> </GridPane.margin> </Button>
 </GridPane>
 
