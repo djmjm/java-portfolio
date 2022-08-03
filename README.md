@@ -47,6 +47,7 @@
 - [Interface Gráfica](https://github.com/djmjm/java-portfolio/tree/main/Exemplos/src/swing)
 - [Banco de Dados](https://github.com/djmjm/java-portfolio/tree/main/Exemplos/src/jdbc)
 - [Hibernate - JPA](https://github.com/djmjm/java-portfolio/tree/main/JPA/src/main/java)
+- [JavaFX](https://github.com/djmjm/java-portfolio/tree/main/JavaFX/src)
 
 ## ✔️ Tarefas Concluídas
 - [x] Fundamentos
@@ -55,9 +56,9 @@
 - [x] Framework para Banco de Dados
 - [x] Exemplos de Aplicação Prática
 - [x] Implementação com Hibernate
+- [x] Exemplos JavaFX
 
 ## 🛠️ Tarefas em Andamento
-- [ ] Exemplos JavaFX
 - [ ] Springboot
 
 ## 💡 Tarefas Futuras
