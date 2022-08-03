@@ -8,6 +8,8 @@ public class ExerciciosSpringbootApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(ExerciciosSpringbootApplication.class, args);
+		System.out.println("Hello Tomcat!!!");
+		System.out.println("Hello Spring!!!".toUpperCase());
 	}
 
 }
