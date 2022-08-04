@@ -12,6 +12,7 @@ public class ClienteController {
 	
 	@GetMapping("/qualquer")
 	public Cliente obterCliente() {
-		return new Cliente(1, "Paulo", "125.125.125-45");
+		return new Cliente(1, "Anônimo", "125.125.125-45");
 	}
+
 }
