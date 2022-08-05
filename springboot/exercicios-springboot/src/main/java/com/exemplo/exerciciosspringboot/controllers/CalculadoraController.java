@@ -12,17 +12,19 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/calculadora")
 public class CalculadoraController {
 	
+	final String label = "Resultado operação é ->> ";
+	
 	@GetMapping("/somar/{a}/{b}")
 	public String somar(
 			@PathVariable Integer a,
 			@PathVariable Integer b) {
-		a += b; return a.toString();
+		a += b; return label + a.toString();
 	}
 	
 	@GetMapping("/subtrair")
 	public String subtrair(
 			@RequestParam(name="a") Integer a,
 			@RequestParam(name="b") Integer b) {
-		a -= b; return a.toString();
+		a -= b; return label + a.toString();
 	}
 }
