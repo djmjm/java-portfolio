@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/calculadora")
 public class CalculadoraController {
 	
-	final String label = "Resultado operação é ->> ";
+	private final String label = "Resultado operação é ->> ";
 	
 	@GetMapping("/somar/{a}/{b}")
 	public String somar(
