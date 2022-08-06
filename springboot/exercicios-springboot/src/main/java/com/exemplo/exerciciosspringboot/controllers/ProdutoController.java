@@ -1,6 +1,7 @@
 package com.exemplo.exerciciosspringboot.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -24,6 +25,11 @@ public class ProdutoController {
 		produtoRepository.save(produto);
 		
 		return produto;
+	}
+	
+	@GetMapping
+	public Iterable<Produto> obterProdutos() {
+		return produtoRepository.findAll();
 	}
 	
 	/*
