@@ -13,6 +13,9 @@ public class Produto{
 	
 	private String nome;
 	
+	private double preco;
+	private double desconto;
+	
 	public Produto() {
 		this("Produto Genérico");
 	}
@@ -20,6 +23,15 @@ public class Produto{
 	public Produto(String nome) {
 		super();
 		this.nome = nome;
+	}
+	
+	public Produto(String nome,
+				double preco, 
+				double desconto
+				) {
+		this.nome = nome;
+		this.preco = preco;
+		this.desconto = desconto;
 	}
 
 	public int getId() {
@@ -32,6 +44,22 @@ public class Produto{
 
 	public void setNome(String nome) {
 		this.nome = nome;
+	}
+
+	public double getPreco() {
+		return preco;
+	}
+
+	public void setPreco(double preco) {
+		this.preco = preco;
+	}
+
+	public double getDesconto() {
+		return desconto;
+	}
+
+	public void setDesconto(double desconto) {
+		this.desconto = desconto;
 	}
 	
 }
