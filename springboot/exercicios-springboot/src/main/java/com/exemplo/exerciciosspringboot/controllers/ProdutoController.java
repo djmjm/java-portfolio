@@ -18,6 +18,16 @@ public class ProdutoController {
 	private ProdutoRepository produtoRepository;
 	
 	@PostMapping
+	public  @ResponseBody Produto novoProduto(Produto produto
+			) {
+		
+		produtoRepository.save(produto);
+		
+		return produto;
+	}
+	
+	/*
+	@PostMapping
 	public  @ResponseBody Produto novoProduto(
 			@RequestParam String nome,
 			@RequestParam double preco,
@@ -30,4 +40,5 @@ public class ProdutoController {
 		
 		return produto;
 	}
+	*/
 }
