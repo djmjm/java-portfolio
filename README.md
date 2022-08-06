@@ -57,13 +57,10 @@
 - [x] Exemplos de Aplicação Prática
 - [x] Implementação com Hibernate
 - [x] Exemplos JavaFX
+- [x] Springboot
 
 ## 🛠️ Tarefas em Andamento
-- [ ] Springboot
-
-## 💡 Tarefas Futuras
 - [ ] noSQL com MongoDB
-
 
 # 🚧 Em desenvolvimento ...
 
