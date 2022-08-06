@@ -46,6 +46,13 @@ public class ProdutoController {
 		return produtoRepository.findById(id);
 	}
 	
+	@GetMapping(path="/nome/{parteNome}")
+	public Iterable<Produto> obterProdutosPorNome(
+			@PathVariable String parteNome){
+		return produtoRepository.
+				findByNomeContaining(parteNome);
+	}
+	
 	@GetMapping(path="/pagina/{id}/{offset}")
 	public Iterable<Produto> 
 	obterProdutosPorPagina(
