@@ -33,7 +33,21 @@ public class Produto{
 		this.preco = preco;
 		this.desconto = desconto;
 	}
+	
+	public Produto(int id,
+			String nome,
+			double preco, 
+			double desconto
+			) {
+	this.nome = nome;
+	this.preco = preco;
+	this.desconto = desconto;
+	setId(id);
+}
 
+	public void setId(int id) {
+		this.id = id;
+	}
 	public int getId() {
 		return id;
 	}
