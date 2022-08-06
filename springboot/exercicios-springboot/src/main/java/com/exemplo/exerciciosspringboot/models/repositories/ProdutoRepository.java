@@ -1,10 +1,8 @@
 package com.exemplo.exerciciosspringboot.models.repositories;
 
-import org.springframework.data.repository.CrudRepository;
+import org.springframework.data.repository.PagingAndSortingRepository;
 
 import com.exemplo.exerciciosspringboot.models.entities.Produto;
 
 public interface ProdutoRepository 
-extends CrudRepository<Produto, Integer> {
-	
-}
+extends PagingAndSortingRepository<Produto, Integer> {}

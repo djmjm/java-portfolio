@@ -3,6 +3,7 @@ package com.exemplo.exerciciosspringboot.controllers;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -43,6 +44,26 @@ public class ProdutoController {
 	public Optional<Produto> obterProdutoPorId(
 			@PathVariable int id) {
 		return produtoRepository.findById(id);
+	}
+	
+	@GetMapping(path="/pagina/{id}/{offset}")
+	public Iterable<Produto> 
+	obterProdutosPorPagina(
+			@PathVariable int id,
+			@PathVariable int offset){
+		offset =  Math.min(
+						5, 
+					Math.max(
+						offset, 
+						1
+					) 
+				);
+		PageRequest page = PageRequest.of(
+				id,
+				offset
+				)
+		;
+		return produtoRepository.findAll(page);
 	}
 	
 	@PutMapping(path="/alterar")
