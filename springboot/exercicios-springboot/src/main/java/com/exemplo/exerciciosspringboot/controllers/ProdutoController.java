@@ -73,6 +73,11 @@ public class ProdutoController {
 		return produtoRepository.findAll(page);
 	}
 	
+	@GetMapping(path="/nomes")
+	public Iterable<String> obterTodosNomes(){
+		return produtoRepository.findAllNomes();
+	}
+	
 	@PutMapping(path="/alterar")
 	public Produto alterarProduto(Produto produto) {
 		produtoRepository.save(produto);
