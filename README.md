@@ -17,7 +17,6 @@
 - MariaDB (SQL)
 - Hibernate
 - SpringBoot
-- MongoDB (noSQL)
 
 ### Aplicações Desenvolvidas
 - [Calculadora](https://github.com/djmjm/java-portfolio/tree/main/Calculadora)
