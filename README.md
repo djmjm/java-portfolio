@@ -59,8 +59,5 @@
 - [x] Exemplos JavaFX
 - [x] Springboot
 
-## 🛠️ Tarefas em Andamento
-- [ ] noSQL com MongoDB
-
-# 🚧 Em desenvolvimento ...
+# ✔️🏆 CONCLUÍDO!!!
 
