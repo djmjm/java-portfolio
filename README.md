@@ -59,5 +59,8 @@
 - [x] Exemplos JavaFX
 - [x] Springboot
 
-# ✔️🏆 CONCLUÍDO!!!
+## 🛠️ Tarefas em Andamento
+- [ ] Exemplos sqlite
+
+# 💭 ... 📋
 
