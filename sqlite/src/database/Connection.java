@@ -54,6 +54,14 @@ public class Connection{
 		return connection;
 	}
 	
+	public void close() {
+		try {
+			connection.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	}
+	
 	@Override
 	public String toString() {
 		Boolean answer = checkConnection();
