@@ -2,6 +2,7 @@ package database;
 
 import java.sql.DriverManager;
 import java.sql.SQLException;
+import java.util.Properties;
 
 public class Connection{
 	private String databaseName;
@@ -14,6 +15,13 @@ public class Connection{
 	public Connection() 
 	throws SQLException{
 		this("database.db", "data/myDB/");
+	}
+	
+	public Connection(Properties property) 
+	throws SQLException{
+		this(property.getProperty("db.name"), 
+			 property.getProperty("db.url")
+			 );
 	}
 	
 	public Connection
