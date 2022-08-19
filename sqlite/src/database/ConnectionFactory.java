@@ -12,7 +12,7 @@ public class ConnectionFactory {
 	throws IOException, SQLException {
 		Properties property = new Properties();
 		String fileName = "/database/connection.properties";
-		InputStream url =   ConnectionPropertiesTest.
+		InputStream url =   ConnectionFactory.
 							class.getResourceAsStream(
 									fileName
 							);
@@ -30,7 +30,7 @@ public class ConnectionFactory {
 	public static Connection getConnection(String fileName) 
 			throws IOException, SQLException {
 				Properties property = new Properties();
-				InputStream url =   ConnectionPropertiesTest.
+				InputStream url =   ConnectionFactory.
 									class.getResourceAsStream(
 											fileName
 									);
