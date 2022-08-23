@@ -11,14 +11,14 @@ public class UpdateTableTest {
 	public static void main(String[] args) {
 		try {
 			
-			String name = "joao";
+			String name = "douglas";
 			
 			Connection connection = 
 					ConnectionFactory.getConnection().
 									  getConnection();
 			
 			String sql = "update test "
-					+ "set name='douglas' "
+					+ "set name='Douglas' "
 					+ "where name=? "
 				;
 			
