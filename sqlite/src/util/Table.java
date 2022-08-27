@@ -9,6 +9,38 @@ import database.ConnectionFactory;
 
 public class Table {
 	
+	public static void insert
+	(String tableName, String collumns, String values) {
+		try {
+			Connection connection = 
+					ConnectionFactory.getConnection().
+									  getConnection();
+			
+			String sql = "insert into "
+						 + tableName 
+						 + " " + collumns 
+						 + " values "
+						 + values
+						 ;
+			
+			Statement stmt = connection.createStatement();
+			stmt.execute(sql);
+			
+			String answer = "Put values | "
+							+ values
+							+ " | into table "
+							+ tableName
+							+ " --->>> Successful!"
+							;
+			
+			System.out.println(answer);
+			connection.close();
+			}
+			catch(SQLException | IOException e) {
+				e.printStackTrace();
+			}
+	}
+	
 	public static void create
 	(String tableName, String sqlColumnsParams) {
 		try {
