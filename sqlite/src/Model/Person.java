@@ -1,5 +1,8 @@
 package model;
 
+import java.util.List;
+
+import util.Name;
 import util.Table;
 
 public class Person {
@@ -7,6 +10,9 @@ public class Person {
 	private long id;
 	private String name;
 	private String cpf;
+	
+	private static final 
+	String tableNameDB = "Person";
 	
 	public Person(){
 		id = 1983;
@@ -24,7 +30,7 @@ public class Person {
 	}
 	
 	private void insertTableDB() {
-		String tableName = "Person";
+		String tableName = tableNameDB;
 		String collumns = "(id, name, cpf)";
 		String values = 
 				"(" + id +", '" + name + "', '" + cpf + "')";
@@ -33,7 +39,7 @@ public class Person {
 	}
 	
 	public static void createTableDB() {
-		String tableName = "Person";
+		String tableName = tableNameDB;
 		
 		String sqlCollumnId = "( id int auto_increment primary key not null, ";
 		String sqlCollumnName = " name varchar(80) not null, ";
@@ -46,6 +52,9 @@ public class Person {
 		
 		Table.create(tableName, sqlCollumns);
 		System.out.println("OK!");
-		
+	}
+	
+	public static List<String> getAllNamesDB() {
+		return Name.getList(tableNameDB);
 	}
 }

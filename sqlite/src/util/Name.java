@@ -12,7 +12,7 @@ import database.ConnectionFactory;
 
 public abstract class Name {
 	public static List<String> 
-		getListNames(String nameTable) {
+		getList(String nameTable) {
 			
 		try {
 			Connection connection =
@@ -20,7 +20,7 @@ public abstract class Name {
 									  getConnection()
 					;
 			String sql =
-					"select * from " +
+					"select name from " +
 					nameTable
 					;
 			Statement stmt = 

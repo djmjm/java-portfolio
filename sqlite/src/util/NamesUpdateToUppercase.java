@@ -9,7 +9,7 @@ import database.ConnectionFactory;
 public class NamesUpdateToUppercase {
 	public static void main(String[] args) {
 		List<String> listNames = 
-				Name.getListNames("test")
+				Name.getList("test")
 				;
 		
 		try {
