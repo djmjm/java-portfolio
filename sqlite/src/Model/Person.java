@@ -54,6 +54,25 @@ public class Person {
 		System.out.println("OK!");
 	}
 	
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+		
+		String setChange = "set name='" + name + "'";
+		Table.update(tableNameDB, id, setChange);
+	}
+
+	public String getCpf() {
+		return cpf;
+	}
+
+	public void setCpf(String cpf) {
+		this.cpf = cpf;
+	}
+
 	public static List<String> getAllNamesDB() {
 		return Name.getList(tableNameDB);
 	}

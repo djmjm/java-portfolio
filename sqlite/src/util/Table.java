@@ -2,6 +2,7 @@ package util;
 
 import java.io.IOException;
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.sql.Statement;
 
@@ -39,6 +40,33 @@ public class Table {
 			catch(SQLException | IOException e) {
 				e.printStackTrace();
 			}
+	}
+	
+	public static void update
+	(String tableName, long idChange, String setChange) {
+		try {			
+			Connection connection = 
+					ConnectionFactory.getConnection().
+									  getConnection();
+			
+			String sql = "update " + tableName
+					+ " " + setChange
+					+ " where id=? "
+				;
+			
+			PreparedStatement stmt = connection.prepareStatement(sql);
+			stmt.setLong(1, idChange);
+			stmt.execute();
+			
+			String answer = setChange + "in id " + idChange
+						    + " --->>> updated!"
+						    ;
+			System.out.println(answer);
+			connection.close();
+		}
+		catch(SQLException | IOException e) {
+			e.printStackTrace();
+		}
 	}
 	
 	public static void create
