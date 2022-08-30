@@ -2,7 +2,7 @@ package test;
 
 import model.Person;
 
-public class loadPersonTest {
+public class LoadPersonTest {
 	public static void main(String[] args) {
 		Person person = new Person(111);
 		
