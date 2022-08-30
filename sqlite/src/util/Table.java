@@ -3,12 +3,19 @@ package util;
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.Arrays;
+import java.util.List;
 
 import database.ConnectionFactory;
 
 public class Table {
+	
+	public static boolean isValidQuery(Object result) {
+		return result != null;
+	}
 	
 	public static void insert
 	(String tableName, String collumns, String values) {
@@ -66,6 +73,42 @@ public class Table {
 		}
 		catch(SQLException | IOException e) {
 			e.printStackTrace();
+		}
+	}
+	
+	public static Object get
+	(String tableName, long id){
+		
+		try {
+			Connection connection =
+					ConnectionFactory.
+						getConnection().getConnection()
+					;
+			String sql =
+					"select * from " + tableName
+					+ " where id='" + id + "'"
+					;
+			Statement stmt = 
+					connection.createStatement()
+					;
+			ResultSet result =
+					stmt.executeQuery(sql)
+					;
+			
+			List<Object> answer = Arrays.asList(
+									result.getString("Name"),
+									result.getString("cpf")
+									)
+					;
+				
+			stmt.close();
+			connection.close();
+			
+			return answer;
+		}
+		catch(Exception e){
+			e.printStackTrace();
+			return null;
 		}
 	}
 	

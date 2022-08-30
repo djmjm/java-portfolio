@@ -14,11 +14,41 @@ public class Person {
 	private static final 
 	String tableNameDB = "Person";
 	
+	private void insertTableDB() {
+		String tableName = tableNameDB;
+		String collumns = "(id, name, cpf)";
+		String values = 
+				"(" + id +", '" + name + "', '" + cpf + "')";
+		
+		Table.insert(tableName, collumns, values);
+	}
+	
+	private void loadPerson(long id) {
+		Object result = Table.get(tableNameDB, id);
+		
+		if(Table.isValidQuery(result)) {
+			List<String> resultList = (List) result;
+			
+			this.id = id;
+			this.name = resultList.get(0);
+			this.cpf = resultList.get(1);
+			
+			System.out.println("carregou!");
+		}
+		else {
+			System.out.println("não carregou ...");
+		}
+	}
+	
 	public Person(){
 		id = 1983;
 		name = "Nome";
 		cpf = "12345678912";
 		insertTableDB();
+	}
+	
+	public Person(long id) {
+		loadPerson(id);
 	}
 	
 	public Person
@@ -27,15 +57,6 @@ public class Person {
 		this.name = name;
 		this.cpf = cpf;
 		insertTableDB();
-	}
-	
-	private void insertTableDB() {
-		String tableName = tableNameDB;
-		String collumns = "(id, name, cpf)";
-		String values = 
-				"(" + id +", '" + name + "', '" + cpf + "')";
-		
-		Table.insert(tableName, collumns, values);
 	}
 	
 	public static void createTableDB() {
@@ -69,9 +90,12 @@ public class Person {
 		return cpf;
 	}
 
+	/* TODO fix cpf update db ...
 	public void setCpf(String cpf) {
 		this.cpf = cpf;
 	}
+	
+	*/
 
 	public static List<String> getAllNamesDB() {
 		return Name.getList(tableNameDB);
