@@ -1,5 +1,6 @@
 package model;
 
+import java.util.Arrays;
 import java.util.List;
 
 import util.Name;
@@ -14,6 +15,10 @@ public class Person {
 	private static final 
 	String tableNameDB = "Person";
 	
+	private static final
+		List<String> collumnNames = 
+			Arrays.asList("name", "cpf"); 
+	
 	private void insertTableDB() {
 		String tableName = tableNameDB;
 		String collumns = "(id, name, cpf)";
@@ -24,7 +29,7 @@ public class Person {
 	}
 	
 	private void loadPerson(long id) {
-		Object result = Table.get(tableNameDB, id);
+		Object result = Table.get(tableNameDB, id, collumnNames);
 		
 		if(Table.isValidQuery(result)) {
 			List<String> resultList = (List) result;

@@ -9,7 +9,7 @@ public class LoadPersonTest {
 		System.out.println(person.getName());
 		System.out.println(person.getCpf());
 		
-		person = new Person(11111);
+		person = new Person(1111);
 		
 		System.out.println(person.getName());
 		System.out.println(person.getCpf());

@@ -6,6 +6,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -77,7 +78,7 @@ public class Table {
 	}
 	
 	public static Object get
-	(String tableName, long id){
+	(String tableName, long id, List<String> collumnNames){
 		
 		try {
 			Connection connection =
@@ -95,11 +96,14 @@ public class Table {
 					stmt.executeQuery(sql)
 					;
 			
-			List<Object> answer = Arrays.asList(
-									result.getString("Name"),
-									result.getString("cpf")
-									)
+			List<Object> answer = new ArrayList<>();
 					;
+			
+			for(String collumnName : collumnNames) {
+				answer.add(
+					result.getString(collumnName)
+				);
+			}
 				
 			stmt.close();
 			connection.close();
