@@ -4,7 +4,7 @@ import java.util.function.Predicate;
 
 import model.Person;
 
-public class getPersonNamesTest {
+public class GetPersonNamesTest {
 	public static void main(String[] args) {
 		
 		Predicate<String> FirstLetter =

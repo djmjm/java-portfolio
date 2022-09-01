@@ -38,10 +38,9 @@ public class Person {
 			this.name = resultList.get(0);
 			this.cpf = resultList.get(1);
 			
-			System.out.println("carregou!");
 		}
 		else {
-			System.out.println("não carregou ...");
+			System.out.println("Pessoa não encontrada...");
 		}
 	}
 	
@@ -95,12 +94,12 @@ public class Person {
 		return cpf;
 	}
 
-	/* TODO fix cpf update db ...
 	public void setCpf(String cpf) {
 		this.cpf = cpf;
+		
+		String setChange = "set cpf='" + cpf + "'";
+		Table.update(tableNameDB, id, setChange);
 	}
-	
-	*/
 
 	public static List<String> getAllNamesDB() {
 		return Name.getList(tableNameDB);
