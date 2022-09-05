@@ -3,6 +3,7 @@ package model;
 import java.util.Arrays;
 import java.util.List;
 
+import util.CPF;
 import util.Name;
 import util.Table;
 
@@ -103,5 +104,9 @@ public class Person {
 
 	public static List<String> getAllNamesDB() {
 		return Name.getList(tableNameDB);
+	}
+	
+	public static List<String> getAllCPFDB() {
+		return CPF.getList(tableNameDB);
 	}
 }
