@@ -109,4 +109,8 @@ public class Person {
 	public static List<String> getAllCPFDB() {
 		return CPF.getList(tableNameDB);
 	}
+	
+	public static void dropTable() {
+		Table.drop(tableNameDB);
+	}
 }
