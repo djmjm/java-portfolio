@@ -58,9 +58,7 @@
 - [x] Implementação com Hibernate
 - [x] Exemplos JavaFX
 - [x] Springboot
+- [x] Exemplos sqlite
 
-## 🛠️ Tarefas em Andamento
-- [ ] Exemplos sqlite
-
-# 💭 ... 📋
+# 👍
 
