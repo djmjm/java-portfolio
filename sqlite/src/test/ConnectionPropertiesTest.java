@@ -16,6 +16,7 @@ public class ConnectionPropertiesTest {
 							);
 		
 		try {
+			
 			property.load(url);
 			String databaseName = 
 					property.getProperty("db.name");

@@ -12,6 +12,7 @@ public class Person {
 	private long id;
 	private String name;
 	private String cpf;
+	private Double budget;
 	
 	private static final 
 	String tableNameDB = "Person";
@@ -22,9 +23,11 @@ public class Person {
 	
 	private void insertTableDB() {
 		String tableName = tableNameDB;
-		String collumns = "(id, name, cpf)";
+		String collumns = "(id, name, cpf, budget)";
 		String values = 
-				"(" + id +", '" + name + "', '" + cpf + "')";
+				"(" + id +", '" + name + "', '" 
+					+ cpf + "', '" 
+					+ budget + "')";
 		
 		Table.insert(tableName, collumns, values);
 	}
@@ -49,6 +52,7 @@ public class Person {
 		id = 1983;
 		name = "Nome";
 		cpf = "12345678912";
+		budget = (Double) 1111.0;
 		insertTableDB();
 	}
 	
@@ -61,6 +65,18 @@ public class Person {
 		this.id = id;
 		this.name = name;
 		this.cpf = cpf;
+		this.budget = (Double) 11111.0;
+		
+		insertTableDB();
+	}
+	
+	public Person
+	(long id, String name, String cpf, Double budget){
+		this.id = id;
+		this.name = name;
+		this.cpf = cpf;
+		this.budget = budget;
+		
 		insertTableDB();
 	}
 	
@@ -69,11 +85,13 @@ public class Person {
 		
 		String sqlCollumnId = "( id int auto_increment primary key not null, ";
 		String sqlCollumnName = " name varchar(80) not null, ";
-		String sqlCollumnCpf = " cpf varchar(11) not null )";
+		String sqlCollumnCpf = " cpf varchar(11) not null, ";
+		String sqlCollumnBudget = " budget varchar(11) not null )";
 		
 		String sqlCollumns = sqlCollumnId +
 							 sqlCollumnName +
-							 sqlCollumnCpf
+							 sqlCollumnCpf +
+							 sqlCollumnBudget
 							 ;
 		
 		Table.create(tableName, sqlCollumns);
